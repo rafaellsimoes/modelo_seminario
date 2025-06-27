@@ -32,7 +32,7 @@
             --secondary-color: #2e7d32;
             --accent-color: #8bc34a;
             --text-color: #f7f7f7;
-            --bg-gradient: linear-gradient(120deg, #1a4b8c 0%, #1a4b8c 30%, #2e7d32 70%, #8bc34a 100%);
+            --bg-gradient: linear-gradient(120deg, #1a4b8c 0%, #1a4b8c 40%, #2e7d32 80%, #8bc34a 100%);
             --pattern-color: rgba(255,255,255,0.07);
             --title-gradient: linear-gradient(45deg, #0066ff, #00aaff, #00ccff);
         }
@@ -58,12 +58,13 @@
             height: 100%;
             z-index: -1;
             background-image:
-                repeating-linear-gradient(135deg, var(--pattern-color) 0 2px, transparent 2px 40px),
-                repeating-linear-gradient(225deg, var(--pattern-color) 0 2px, transparent 2px 40px),
-                radial-gradient(circle at 20% 30%, rgba(139,195,74,0.08) 0, transparent 70%),
-                radial-gradient(circle at 80% 70%, rgba(46,125,50,0.10) 0, transparent 80%);
-            pointer-events: none;
-            opacity: 0.5;
+                linear-gradient(var(--pattern-color) 2px, transparent 2px),
+                linear-gradient(90deg, var(--pattern-color) 2px, transparent 2px),
+                linear-gradient(var(--pattern-color) 1px, transparent 1px),
+                linear-gradient(90deg, var(--pattern-color) 1px, transparent 1px);
+            background-size: 50px 50px, 50px 50px, 10px 10px, 10px 10px;
+            background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
+            opacity: 0.3;
         }
         
         body {
@@ -157,6 +158,25 @@
             padding: 2rem 1rem 3rem;
             text-align: center;
             overflow: hidden;
+            position: relative;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                linear-gradient(var(--pattern-color) 2px, transparent 2px),
+                linear-gradient(90deg, var(--pattern-color) 2px, transparent 2px),
+                linear-gradient(var(--pattern-color) 1px, transparent 1px),
+                linear-gradient(90deg, var(--pattern-color) 1px, transparent 1px);
+            background-size: 50px 50px, 50px 50px, 10px 10px, 10px 10px;
+            background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
+            opacity: 0.3;
+            z-index: -1;
         }
         
         .header-logos {
